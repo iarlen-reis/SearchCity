@@ -6,6 +6,7 @@ import { HomeStyled } from "./styles";
 
 import SelectState from "../../components/SelectState/SelectState";
 import SelectCity from "../../components/SelectCity/SelectCity";
+import ButtonSearch from "../../components/ButtonSearch/ButtonSearch";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <h1>Home</h1>
         <SelectState />
         <SelectCity />
+        <ButtonSearch />
       </HomeStyled>
     </ContainerStyled>
   );
