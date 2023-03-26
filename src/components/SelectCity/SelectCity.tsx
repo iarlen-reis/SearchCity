@@ -5,13 +5,14 @@ import { SelectStyled, OptionStyled } from "./styles";
 import { SearchContext } from "../../contexts/SearchContext";
 
 const SelectCity = () => {
-  const { state, setCity } = useContext(SearchContext);
+  const { state, city, setCity } = useContext(SearchContext);
 
   return (
     <div>
       <SelectStyled
         disabled={state ? false : true}
         onChange={(event) => setCity(event.target.value)}
+        value={city}
       >
         <OptionStyled>Selecione uma cidade</OptionStyled>
         <OptionStyled value="Salvador">Salvador</OptionStyled>
