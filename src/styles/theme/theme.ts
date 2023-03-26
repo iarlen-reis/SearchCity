@@ -6,6 +6,6 @@ export const Theme: ITheme = {
     secundary: "#336699",
     tertiary: "#FFCC66",
     white: "#FFF",
-    black: "#000",
+    black: "#1E1E1E",
   },
 };

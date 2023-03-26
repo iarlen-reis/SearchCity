@@ -7,8 +7,7 @@ import Footer from "../components/Footer/Footer";
 
 export const router = createBrowserRouter([
   {
-    // eslint-disable-next-line react/jsx-key
-    element: [<Header />, <Footer />],
+    element: [<Header key={1} />, <Footer key={2} />],
     children: [
       {
         path: "/",

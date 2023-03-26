@@ -29,7 +29,7 @@ export default createGlobalStyle`
 
 `;
 
-export const ContainerStyled = styled.div`
+export const ContainerStyled = styled.main`
   max-width: 1200px;
   width: 100%;
   height: 90vh;
