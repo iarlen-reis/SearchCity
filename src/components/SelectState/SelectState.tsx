@@ -12,7 +12,7 @@ const SelectState = () => {
       onChange={(event) => setState(event.target.value)}
       value={state}
     >
-      <OptionStyled>Selecione um Estado</OptionStyled>
+      <OptionStyled value="">Selecione um Estado</OptionStyled>
       <OptionStyled value="Bahia">Bahia</OptionStyled>
     </SelectStyled>
   );

@@ -14,7 +14,7 @@ const SelectCity = () => {
         onChange={(event) => setCity(event.target.value)}
         value={city}
       >
-        <OptionStyled>Selecione uma cidade</OptionStyled>
+        <OptionStyled value="">Selecione uma cidade</OptionStyled>
         <OptionStyled value="Salvador">Salvador</OptionStyled>
         <OptionStyled value="Simões filho">Simões filho</OptionStyled>
         <OptionStyled value="Feira de Santana">Feira de Santana</OptionStyled>

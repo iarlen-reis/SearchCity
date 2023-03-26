@@ -5,14 +5,17 @@ import { ButtonStyled } from "./styles";
 import { SearchContext } from "../../contexts/SearchContext";
 
 const ButtonSearch = () => {
-  const { city } = useContext(SearchContext);
+  const { city, state } = useContext(SearchContext);
 
   const handleSubmit = (): void => {
     console.log("Cliquei!");
   };
 
   return (
-    <ButtonStyled disabled={city ? false : true} onClick={handleSubmit}>
+    <ButtonStyled
+      disabled={state ? (city ? false : true) : true}
+      onClick={handleSubmit}
+    >
       Buscar Informações
     </ButtonStyled>
   );
