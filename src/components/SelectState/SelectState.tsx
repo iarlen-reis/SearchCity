@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import { SelectStyled, OptionStyled } from "./styles";
 
+import { SearchContext } from "../../contexts/SearchContext";
+
 const SelectState = () => {
-  const [state, setState] = useState<string>("");
+  const { setState } = useContext(SearchContext);
 
   return (
     <SelectStyled onChange={(event) => setState(event.target.value)}>

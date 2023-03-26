@@ -8,12 +8,15 @@ import { Theme } from './styles/theme/theme'
 import { ThemeProvider } from 'styled-components'
 
 import { router } from './routes/routes'
+import { SearchProvider } from './contexts/SearchContext'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={Theme}>
-      <GlboalStyled />
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <SearchProvider>
+        <ThemeProvider theme={Theme}>
+            <GlboalStyled />
+            <RouterProvider router={router} />
+        </ThemeProvider>
+    </SearchProvider>
   </React.StrictMode>
 )
