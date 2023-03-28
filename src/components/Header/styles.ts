@@ -56,7 +56,7 @@ export const UlStyled = styled.ul`
     transition: 0.5s;
 
     &:hover {
-      color: #aaa;
+      color: ${({ theme }) => theme.colors.tertiary};
     }
   }
 
