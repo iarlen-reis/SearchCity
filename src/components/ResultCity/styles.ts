@@ -4,7 +4,7 @@ export const InfoContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
 
   padding: 1rem;
 `;
@@ -27,12 +27,58 @@ export const ImageStyled = styled.div`
     width: 100%;
     height: 250px;
   }
+
+  @media (max-width: 1090px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    img {
+      width: 100%;
+      height: 150px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    img {
+      width: 100%;
+      height: 130px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    h1 {
+      font-size: 2rem;
+      padding: 1rem;
+    }
+
+    img {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 545px) {
+    h1 {
+      font-size: 2rem;
+      padding: 1rem;
+    }
+
+    img {
+      width: 100%;
+      height: 150px;
+    }
+  }
 `;
 
 export const InfoStyled = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 
   h2 {
     text-transform: uppercase;
@@ -63,6 +109,10 @@ export const UlContainer = styled.div`
       color: ${({ theme }) => theme.colors.tertiary};
 
       display: block;
+    }
+
+    @media (max-width: 1090px) {
+      font-size: 1.3rem;
     }
   }
 `;

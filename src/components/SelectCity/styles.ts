@@ -14,6 +14,23 @@ export const SelectStyled = styled.select`
 
   color: ${({ theme }) => theme.colors.white};
   background: ${({ theme }) => theme.colors.black};
+
+  @media (max-width: 1090px) {
+    width: 40rem;
+  }
+
+  @media (max-width: 800px) {
+    width: 30rem;
+  }
+
+  @media (max-width: 680px) {
+    width: 40rem;
+  }
+
+  @media (max-width: 545px) {
+    max-width: 30rem;
+    font-size: 1.5rem;
+  }
 `;
 
 export const OptionStyled = styled.option``;
