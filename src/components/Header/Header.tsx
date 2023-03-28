@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 
 import { IoLogoGithub } from "react-icons/io";
@@ -10,17 +10,22 @@ import {
   HeaderContainer,
   MenuContainer,
   UlStyled,
+  MobileStyled,
 } from "./styles";
+
+import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
 import Logo from "/LogoContainer.png";
 
 const Header = () => {
+  const [mobile, setMobile] = useState(false);
+
   return (
     <>
       <HeaderStyled>
         <HeaderContainer>
           <LogoContainer src={Logo} alt="Logo da página" />
-          <MenuContainer>
+          <MenuContainer mobile={mobile}>
             <UlStyled>
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -42,6 +47,13 @@ const Header = () => {
               </li>
             </UlStyled>
           </MenuContainer>
+          <MobileStyled>
+            {!mobile ? (
+              <RiMenu3Line onClick={() => setMobile(!mobile)} />
+            ) : (
+              <RiCloseLine onClick={() => setMobile(!mobile)} />
+            )}
+          </MobileStyled>
         </HeaderContainer>
       </HeaderStyled>
       <Outlet />
