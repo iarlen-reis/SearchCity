@@ -24,4 +24,19 @@ export const ButtonStyled = styled.button`
     background: rgba(0, 0, 0, 0.45);
     cursor: unset;
   }
+
+  @media (max-width: 1090px) {
+    width: 20rem;
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 680px) {
+    width: 25rem;
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 545px) {
+    max-width: 20rem;
+    font-size: 1.2rem;
+  }
 `;
