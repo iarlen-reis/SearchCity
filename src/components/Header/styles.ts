@@ -33,6 +33,10 @@ export const HeaderContainer = styled.div`
 
 export const LogoContainer = styled.img`
   width: 25rem;
+
+  @media (max-width: 390px) {
+    width: 20rem;
+  }
 `;
 
 interface IMobile {
