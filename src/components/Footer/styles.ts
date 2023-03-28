@@ -21,6 +21,10 @@ export const FooterContainer = styled.div`
 export const ContactStyled = styled.div`
   display: flex;
   gap: 3rem;
+
+  @media (max-width: 350px) {
+    gap: 2rem;
+  }
 `;
 
 export const ContactContainer = styled.div`
@@ -39,6 +43,18 @@ export const ContactContainer = styled.div`
       color: ${({ theme }) => theme.colors.tertiary};
     }
   }
+
+  @media (max-width: 680px) {
+    a {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 410px) {
+    a {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const DevelopedBy = styled.p`
@@ -54,5 +70,13 @@ export const DevelopedBy = styled.p`
     &:hover {
       color: ${({ theme }) => theme.colors.tertiary};
     }
+  }
+
+  @media (max-width: 680px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 410px) {
+    font-size: 1rem;
   }
 `;
