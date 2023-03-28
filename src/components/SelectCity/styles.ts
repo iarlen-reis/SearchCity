@@ -31,6 +31,11 @@ export const SelectStyled = styled.select`
     max-width: 30rem;
     font-size: 1.5rem;
   }
+
+  @media (max-width: 350px) {
+    max-width: 25rem;
+    font-size: 1.2rem;
+  }
 `;
 
 export const OptionStyled = styled.option``;

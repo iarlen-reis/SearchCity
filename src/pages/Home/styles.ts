@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HomeStyled = styled.main`
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -98,6 +98,7 @@ export const SelectorContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 

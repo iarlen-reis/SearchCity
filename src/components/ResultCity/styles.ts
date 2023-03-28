@@ -10,6 +10,7 @@ export const InfoContainer = styled.div`
 `;
 
 export const ImageStyled = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -76,6 +77,7 @@ export const ImageStyled = styled.div`
 `;
 
 export const InfoStyled = styled.div`
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -87,6 +89,7 @@ export const InfoStyled = styled.div`
 `;
 
 export const UlContainer = styled.div`
+  width: 100%;
   display: flex;
   gap: 5rem;
 
@@ -113,6 +116,10 @@ export const UlContainer = styled.div`
 
     @media (max-width: 1090px) {
       font-size: 1.3rem;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 1rem;
     }
   }
 `;
