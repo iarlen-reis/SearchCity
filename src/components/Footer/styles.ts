@@ -36,7 +36,7 @@ export const ContactContainer = styled.div`
     color: ${({ theme }) => theme.colors.white};
 
     &:hover {
-      color: #aaa;
+      color: ${({ theme }) => theme.colors.tertiary};
     }
   }
 `;
