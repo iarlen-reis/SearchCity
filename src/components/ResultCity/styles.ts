@@ -78,7 +78,7 @@ export const ImageStyled = styled.div`
 export const InfoStyled = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 
   h2 {
     text-transform: uppercase;

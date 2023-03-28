@@ -24,6 +24,7 @@ export const HomeStyled = styled.main`
 `;
 
 export const InfoContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -76,12 +77,24 @@ export const TitleStyled = styled.div`
       max-width: 400px;
     }
   }
+
+  @media (max-width: 350px) {
+    p {
+      font-size: 2.5rem;
+      max-width: 280px;
+    }
+  }
 `;
 
 export const SelectorContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 2rem;
+
+  @media (max-width: 350px) {
+    max-width: 100%;
+  }
 `;
 
 export const ImageContainer = styled.div`
