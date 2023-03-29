@@ -25,6 +25,7 @@ const initialContext = {
   fetchCity: () => {},
   cityResult: CityResultMock,
   loading: false,
+  cityImage: "",
 };
 
 export const SearchContext = createContext<ISearchContext>(initialContext);
@@ -35,6 +36,7 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
   const [states, setStates] = useState<IStates[]>(initialContext.states);
   const [citys, setCitys] = useState<ICitys[]>(initialContext.citys);
   const [cityResult, setCityResult] = useState(initialContext.cityResult);
+  const [cityImage, setCityImage] = useState(initialContext.cityImage);
   const [loading, setLoading] = useState(initialContext.loading);
 
   const fetchStates = async () => {
@@ -64,6 +66,11 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
     try {
       const data = await (await dataAxios(`/municipios/${search}`)).data;
 
+      const imageCity =
+        await `https://servicodados.ibge.gov.br/api/v3/malhas/municipios/${search}`;
+
+      setCityImage(imageCity);
+
       setCityResult(data);
     } catch (error) {
       console.log(error);
@@ -85,6 +92,7 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
         citys,
         cityResult,
         fetchCity,
+        cityImage,
         loading,
       }}
     >

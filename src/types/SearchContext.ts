@@ -13,4 +13,5 @@ export interface ISearchContext {
   fetchCity: (search: string) => void;
   cityResult: ICityResult;
   loading: boolean;
+  cityImage: string;
 }

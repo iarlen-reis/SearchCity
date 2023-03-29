@@ -5,16 +5,13 @@ import { InfoContainer, ImageStyled, InfoStyled, UlContainer } from "./styles";
 import { SearchContext } from "../../contexts/SearchContext";
 
 const ResultCity = () => {
-  const { cityResult } = useContext(SearchContext);
+  const { cityResult, cityImage } = useContext(SearchContext);
   console.log(cityResult);
   return (
     <InfoContainer>
       <ImageStyled>
         <h1>{cityResult.nome}</h1>
-        <img
-          src={`https://servicodados.ibge.gov.br/api/v3/malhas/municipios/${cityResult.id}`}
-          alt={cityResult.nome}
-        />
+        <img src={cityImage} alt={cityResult.nome} />
       </ImageStyled>
       <InfoStyled>
         <h2>Informações:</h2>
