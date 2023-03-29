@@ -1,11 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { SelectStyled, OptionStyled } from "./styles";
 
 import { SearchContext } from "../../contexts/SearchContext";
 
 const SelectCity = () => {
-  const { state, city, setCity } = useContext(SearchContext);
+  const { state, city, setCity, fetchCitys, citys } = useContext(SearchContext);
+
+  useEffect(() => {
+    if (state) {
+      fetchCitys(state);
+    }
+  }, [state]);
 
   return (
     <div>
@@ -15,9 +21,11 @@ const SelectCity = () => {
         value={city}
       >
         <OptionStyled value="">Selecione uma cidade</OptionStyled>
-        <OptionStyled value="Salvador">Salvador</OptionStyled>
-        <OptionStyled value="Simões filho">Simões filho</OptionStyled>
-        <OptionStyled value="Feira de Santana">Feira de Santana</OptionStyled>
+        {citys.map((aCity) => (
+          <OptionStyled key={aCity.id} value={aCity.id}>
+            {aCity.nome}
+          </OptionStyled>
+        ))}
       </SelectStyled>
     </div>
   );
