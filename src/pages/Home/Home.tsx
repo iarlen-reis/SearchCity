@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { ContainerStyled } from "../../styles/Global";
 
@@ -15,8 +15,12 @@ import SelectCity from "../../components/SelectCity/SelectCity";
 import ButtonSearch from "../../components/ButtonSearch/ButtonSearch";
 
 import ResultCity from "../../components/ResultCity/ResultCity";
+import InitialResult from "../../components/InitialResult/InitialResult";
+
+import { SearchContext } from "../../contexts/SearchContext";
 
 const Home = () => {
+  const { cityResult } = useContext(SearchContext);
   return (
     <ContainerStyled>
       <HomeStyled>
@@ -31,7 +35,7 @@ const Home = () => {
           </SelectorContainer>
         </InfoContainer>
         <ImageContainer>
-          <ResultCity />
+          {cityResult.nome ? <ResultCity /> : <InitialResult />}
         </ImageContainer>
       </HomeStyled>
     </ContainerStyled>
