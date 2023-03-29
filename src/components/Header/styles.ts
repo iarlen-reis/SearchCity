@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 const menuMobileAnimation = keyframes`
     from {
-        left: -50%;
+        left: -100%;
     }
     to {
         left: 0;
@@ -61,14 +61,14 @@ export const MenuContainer =
   }
 
   @media (max-width: 800px) {
-  width: 50%;
+  width: 100%;
   display: ${(props) => (props.mobile ? "flex" : "none")};
   flex-direction: column;
   justify-content: center;
   position: absolute;
 
   animation:${menuMobileAnimation} 1s linear;
-  gap: 2rem;
+  gap: 3rem;
 
   top: 7rem;
   left: 0;
