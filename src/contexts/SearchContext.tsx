@@ -39,11 +39,9 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
 
   const fetchStates = async () => {
     try {
-      const data = await dataAxios.get("/estados");
+      const data = await (await dataAxios.get("/estados")).data;
 
-      const responseData = await data.data;
-
-      setStates(responseData);
+      setStates(data);
     } catch (error) {
       console.log(error);
     }
@@ -51,11 +49,11 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
 
   const fetchCitys = async (search: string) => {
     try {
-      const data = await dataAxios.get(`/estados/${search}/municipios`);
+      const data = await (
+        await dataAxios.get(`/estados/${search}/municipios`)
+      ).data;
 
-      const responseData = await data.data;
-
-      setCitys(responseData);
+      setCitys(data);
     } catch (error) {
       console.log(error);
     }
@@ -64,11 +62,9 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
   const fetchCity = async (search: string) => {
     setLoading(true);
     try {
-      const data = await dataAxios(`/municipios/${search}`);
+      const data = await (await dataAxios(`/municipios/${search}`)).data;
 
-      const responseData = await data.data;
-
-      setCityResult(responseData);
+      setCityResult(data);
     } catch (error) {
       console.log(error);
     } finally {
