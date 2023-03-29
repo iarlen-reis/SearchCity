@@ -1,85 +1,27 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable no-empty-function */
+
 import React, { useState, createContext } from "react";
 
 import { dataAxios } from "../services/api";
+
+import { ISearchContext } from "../types/SearchContext";
+import { ICitys, CityResultMock } from "../types/City";
+import { IStates } from "../types/State";
 
 interface ISearchProvider {
   children: React.ReactNode;
 }
 
-interface IStates {
-  id: number;
-  nome: string;
-}
-
-interface ICitys {
-  id: number;
-  nome: string;
-}
-
-interface ICityResult {
-  id: number;
-  nome: string;
-  microrregiao: {
-    mesorregiao: {
-      id: number,
-      nome: string,
-      UF: {
-        sigla: string,
-        regiao: {
-          id: number,
-          nome: string,
-        },
-      },
-    },
-  };
-}
-
-const CityResultMock = {
-  id: 0,
-  nome: "",
-  microrregiao: {
-    mesorregiao: {
-      id: 0,
-      nome: "",
-      UF: {
-        sigla: "",
-        regiao: {
-          id: 0,
-          nome: "",
-        },
-      },
-    },
-  },
-};
-
-interface ISearchContext {
-  state: string;
-  city: string;
-  setState: (state: string) => void;
-  setCity: (city: string) => void;
-  fetchStates: () => void;
-  states: IStates[];
-  fetchCitys: (search: string) => void;
-  citys: ICitys[];
-  fetchCity: (search: string) => void;
-  cityResult: ICityResult;
-  loading: boolean;
-}
-
 const initialContext = {
   state: "",
   city: "",
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setState: () => {},
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setCity: () => {},
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   fetchStates: () => {},
   states: [],
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   fetchCitys: () => {},
   citys: [],
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   fetchCity: () => {},
   cityResult: CityResultMock,
   loading: false,
