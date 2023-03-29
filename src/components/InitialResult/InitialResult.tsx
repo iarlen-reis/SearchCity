@@ -2,7 +2,7 @@ import React from "react";
 
 import { InitialResultContainer, ImageStyled } from "./styles";
 
-import FlagBrasil from "/home/flagBrasil-2.png";
+import FlagBrasil from "/home/flagBrasil-3.png";
 
 const InitialResult = () => {
   return (
