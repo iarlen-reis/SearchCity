@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, Link } from "react-router-dom";
 
 import { IoLogoGithub } from "react-icons/io";
 import { TbApi } from "react-icons/tb";
@@ -24,7 +24,9 @@ const Header = () => {
     <>
       <HeaderStyled>
         <HeaderContainer>
-          <LogoContainer src={Logo} alt="Logo da página" />
+          <Link to="/">
+            <LogoContainer src={Logo} alt="Logo da página" />
+          </Link>
           <MenuContainer mobile={mobile}>
             <UlStyled>
               <li>
