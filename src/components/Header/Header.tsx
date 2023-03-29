@@ -28,20 +28,32 @@ const Header = () => {
           <MenuContainer mobile={mobile}>
             <UlStyled>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" onClick={() => setMobile(false)}>
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/about">Sobre</NavLink>
+                <NavLink to="/about" onClick={() => setMobile(false)}>
+                  Sobre
+                </NavLink>
               </li>
             </UlStyled>
             <UlStyled>
               <li>
-                <a href="#">
+                <a
+                  href="https://github.com/iarlen-reis"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <IoLogoGithub />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a
+                  href="https://servicodados.ibge.gov.br/api/docs"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <TbApi />
                 </a>
               </li>
