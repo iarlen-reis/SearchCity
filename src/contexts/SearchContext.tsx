@@ -34,10 +34,6 @@ interface ICityResult {
   };
 }
 
-interface IMapImage {
-  src: string;
-}
-
 const CityResultMock = {
   id: 0,
   nome: "",
@@ -67,6 +63,7 @@ interface ISearchContext {
   citys: ICitys[];
   fetchCity: (search: string) => void;
   cityResult: ICityResult;
+  loading: boolean;
 }
 
 const initialContext = {
@@ -85,6 +82,7 @@ const initialContext = {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   fetchCity: () => {},
   cityResult: CityResultMock,
+  loading: false,
 };
 
 export const SearchContext = createContext<ISearchContext>(initialContext);
@@ -95,6 +93,7 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
   const [states, setStates] = useState<IStates[]>(initialContext.states);
   const [citys, setCitys] = useState<ICitys[]>(initialContext.citys);
   const [cityResult, setCityResult] = useState(initialContext.cityResult);
+  const [loading, setLoading] = useState(initialContext.loading);
 
   const fetchStates = async () => {
     try {
@@ -121,6 +120,7 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
   };
 
   const fetchCity = async (search: string) => {
+    setLoading(true);
     try {
       const data = await dataAxios(`/municipios/${search}`);
 
@@ -129,6 +129,8 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
       setCityResult(responseData);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -145,6 +147,7 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
         citys,
         cityResult,
         fetchCity,
+        loading,
       }}
     >
       {children}

@@ -5,19 +5,27 @@ import { ButtonStyled } from "./styles";
 import { SearchContext } from "../../contexts/SearchContext";
 
 const ButtonSearch = () => {
-  const { city, state, fetchCity } = useContext(SearchContext);
+  const { city, state, fetchCity, loading } = useContext(SearchContext);
 
   const handleSubmit = (): void => {
     fetchCity(city);
   };
 
   return (
-    <ButtonStyled
-      disabled={state ? (city ? false : true) : true}
-      onClick={handleSubmit}
-    >
-      Buscar Informações
-    </ButtonStyled>
+    <>
+      {loading ? (
+        <ButtonStyled disabled={true} onClick={handleSubmit}>
+          Buscar Informações
+        </ButtonStyled>
+      ) : (
+        <ButtonStyled
+          disabled={state ? (city ? false : true) : true}
+          onClick={handleSubmit}
+        >
+          Buscar Informações
+        </ButtonStyled>
+      )}
+    </>
   );
 };
 
