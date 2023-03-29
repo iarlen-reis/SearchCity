@@ -1,6 +1,6 @@
 # SearchCity
 
-<img src="./public/github/imageTemplate.png.png" alt="image template">
+<img src="./public/github/imageTemplate.png" alt="image template">
 
 ## Description
 
