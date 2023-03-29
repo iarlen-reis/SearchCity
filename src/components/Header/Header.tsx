@@ -43,7 +43,7 @@ const Header = () => {
             <UlStyled>
               <li>
                 <a
-                  href="https://github.com/iarlen-reis"
+                  href="https://github.com/iarlen-reis/SearchCity"
                   target="_blank"
                   rel="noreferrer"
                 >
