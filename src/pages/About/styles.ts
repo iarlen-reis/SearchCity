@@ -14,6 +14,11 @@ const imageAnimation = keyframes`
 
 export const AboutContainer = styled.main`
   display: flex;
+  min-height: 100%;
+
+  @media (max-width: 680px) {
+    flex-direction: column;
+  }
 `;
 
 export const HeaderStyled = styled.header`
@@ -36,6 +41,20 @@ export const HeaderStyled = styled.header`
     max-width: 70rem;
     font-size: 1.8rem;
     font-weight: 500;
+  }
+
+  @media (max-width: 680px) {
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
   }
 `;
 
@@ -60,6 +79,16 @@ export const InfoDetailStyled = styled.div`
     font-size: 1.8rem;
     font-weight: 500;
   }
+
+  @media (max-width: 400px) {
+    h2 {
+      font-size: 2.7rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 export const ApiDetailStyled = styled.div`
@@ -74,6 +103,12 @@ export const ApiDetailStyled = styled.div`
     font-family: "Itim", sans-serif;
 
     color: ${({ theme }) => theme.colors.tertiary};
+  }
+
+  @media (max-width: 400px) {
+    h2 {
+      font-size: 2.7rem;
+    }
   }
 `;
 
@@ -92,6 +127,12 @@ export const UlStyled = styled.ul`
       color: rgba(255, 255, 255, 0.7);
     }
   }
+
+  @media (max-width: 400px) {
+    li a {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -103,7 +144,35 @@ export const ImageContainer = styled.div`
   img {
     position: absolute;
     width: 100%;
-
     animation: ${imageAnimation} 10s ease-in-out infinite;
+  }
+
+  @media (max-width: 680px) {
+    height: 50rem;
+    width: 100%;
+    justify-content: center;
+
+    img {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    height: 40rem;
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    height: 30rem;
+
+    img {
+      width: 250px;
+      height: 250px;
+    }
   }
 `;
