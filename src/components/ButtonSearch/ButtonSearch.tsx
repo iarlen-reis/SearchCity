@@ -5,10 +5,10 @@ import { ButtonStyled } from "./styles";
 import { SearchContext } from "../../contexts/SearchContext";
 
 const ButtonSearch = () => {
-  const { city, state } = useContext(SearchContext);
+  const { city, state, fetchCity } = useContext(SearchContext);
 
   const handleSubmit = (): void => {
-    console.log("Cliquei!");
+    fetchCity(city);
   };
 
   return (

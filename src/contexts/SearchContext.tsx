@@ -16,6 +16,46 @@ interface ICitys {
   nome: string;
 }
 
+interface ICityResult {
+  id: number;
+  nome: string;
+  microrregiao: {
+    mesorregiao: {
+      id: number,
+      nome: string,
+      UF: {
+        sigla: string,
+        regiao: {
+          id: number,
+          nome: string,
+        },
+      },
+    },
+  };
+}
+
+interface IMapImage {
+  src: string;
+}
+
+const CityResultMock = {
+  id: 0,
+  nome: "",
+  microrregiao: {
+    mesorregiao: {
+      id: 0,
+      nome: "",
+      UF: {
+        sigla: "",
+        regiao: {
+          id: 0,
+          nome: "",
+        },
+      },
+    },
+  },
+};
+
 interface ISearchContext {
   state: string;
   city: string;
@@ -25,6 +65,8 @@ interface ISearchContext {
   states: IStates[];
   fetchCitys: (search: string) => void;
   citys: ICitys[];
+  fetchCity: (search: string) => void;
+  cityResult: ICityResult;
 }
 
 const initialContext = {
@@ -40,6 +82,9 @@ const initialContext = {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   fetchCitys: () => {},
   citys: [],
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  fetchCity: () => {},
+  cityResult: CityResultMock,
 };
 
 export const SearchContext = createContext<ISearchContext>(initialContext);
@@ -49,6 +94,7 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
   const [state, setState] = useState(initialContext.state);
   const [states, setStates] = useState<IStates[]>(initialContext.states);
   const [citys, setCitys] = useState<ICitys[]>(initialContext.citys);
+  const [cityResult, setCityResult] = useState(initialContext.cityResult);
 
   const fetchStates = async () => {
     try {
@@ -74,6 +120,18 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
     }
   };
 
+  const fetchCity = async (search: string) => {
+    try {
+      const data = await dataAxios(`/municipios/${search}`);
+
+      const responseData = await data.data;
+
+      setCityResult(responseData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <SearchContext.Provider
       value={{
@@ -85,6 +143,8 @@ export const SearchProvider = ({ children }: ISearchProvider) => {
         states,
         fetchCitys,
         citys,
+        cityResult,
+        fetchCity,
       }}
     >
       {children}
